@@ -17,7 +17,7 @@
   }
 
   ::selection {
-    background: #3B7DED;
+    background: #7C5CFC;
     color: white;
   }
 
@@ -47,6 +47,6 @@
   }
 
   .focus-ring {
-    @apply outline-none focus-visible:ring-2 focus-visible:ring-[#3B7DED] focus-visible:ring-offset-2 focus-visible:ring-offset-canvas-light dark:focus-visible:ring-offset-canvas-dark;
+    @apply outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-canvas-light dark:focus-visible:ring-offset-canvas-dark;
   }
 }

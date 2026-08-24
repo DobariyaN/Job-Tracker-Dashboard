@@ -200,7 +200,7 @@ export default function JobModal({ open, initialData, defaultStatus, knownResume
           </button>
           <button
             type="submit"
-            className="px-4 py-2 rounded-lg text-sm font-medium bg-[#3B7DED] text-white hover:bg-[#2f6bd4] focus-ring shadow-sm"
+            className="px-4 py-2 rounded-lg text-sm font-medium bg-accent text-white hover:bg-accent-hover focus-ring shadow-sm"
           >
             {isEdit ? 'Save changes' : 'Add application'}
           </button>

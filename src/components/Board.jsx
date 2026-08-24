@@ -82,7 +82,7 @@ export default function Board({ jobsByStatus, allJobs, onEdit, onDelete, onQuick
 
       <DragOverlay>
         {activeJob ? (
-          <div className="w-[284px] rotate-2 cursor-grabbing">
+          <div className="w-[280px] rotate-1 cursor-grabbing">
             <JobCard job={activeJob} onEdit={() => {}} onDelete={() => {}} />
           </div>
         ) : null}

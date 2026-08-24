@@ -1,7 +1,17 @@
 import { useRef } from 'react';
-import { Download, Moon, Plus, Search, Sun, Ticket, Upload, X } from 'lucide-react';
+import { Database, Download, Moon, Plus, Search, Sparkles, Sun, Upload, X } from 'lucide-react';
 
-export default function Header({ search, onSearchChange, theme, onToggleTheme, onAddJob, onExport, onImportFile }) {
+export default function Header({
+  search,
+  onSearchChange,
+  theme,
+  onToggleTheme,
+  onAddJob,
+  onExport,
+  onImportFile,
+  totalCount,
+  shownCount,
+}) {
   const fileInputRef = useRef(null);
 
   function handleImportClick() {
@@ -15,14 +25,14 @@ export default function Header({ search, onSearchChange, theme, onToggleTheme, o
   }
 
   return (
-    <header className="border-b border-line-light dark:border-line-dark bg-surface-light/80 dark:bg-surface-dark/80 backdrop-blur-sm sticky top-0 z-30">
+    <header className="border-b border-line-light dark:border-line-dark bg-surface-light/90 dark:bg-panel-dark/90 backdrop-blur-sm sticky top-0 z-30">
       <div className="flex items-center gap-3 px-4 sm:px-6 h-16">
-        <div className="flex items-center gap-2 shrink-0">
-          <div className="w-8 h-8 rounded-lg bg-[#3B7DED] flex items-center justify-center">
-            <Ticket size={16} className="text-white" />
+        <div className="flex items-center gap-2.5 shrink-0">
+          <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-accent to-fuchsia-500 flex items-center justify-center shadow-sm">
+            <Sparkles size={15} className="text-white" fill="currentColor" />
           </div>
           <span className="font-display font-bold text-[17px] text-ink-light dark:text-ink-dark hidden sm:inline">
-            Trackline QA
+            Trackline
           </span>
         </div>
 
@@ -36,7 +46,7 @@ export default function Header({ search, onSearchChange, theme, onToggleTheme, o
             value={search}
             onChange={(e) => onSearchChange(e.target.value)}
             placeholder="Search by company or role..."
-            className="w-full rounded-lg border border-line-light dark:border-line-dark bg-canvas-light dark:bg-canvas-dark text-sm text-ink-light dark:text-ink-dark pl-9 pr-8 py-2 placeholder:text-muted-light/70 dark:placeholder:text-muted-dark/70 focus-ring"
+            className="w-full rounded-lg border border-line-light dark:border-line-dark bg-canvas-light dark:bg-white/[0.05] text-sm text-ink-light dark:text-ink-dark pl-9 pr-8 py-2 placeholder:text-muted-light/70 dark:placeholder:text-muted-dark/70 focus-ring"
           />
           {search && (
             <button
@@ -69,12 +79,23 @@ export default function Header({ search, onSearchChange, theme, onToggleTheme, o
 
           <button
             onClick={() => onAddJob()}
-            className="flex items-center gap-1.5 bg-[#3B7DED] text-white text-sm font-medium rounded-lg pl-3 pr-3.5 py-2 hover:bg-[#2f6bd4] focus-ring shadow-sm ml-1"
+            className="flex items-center gap-1.5 bg-accent text-white text-sm font-medium rounded-lg pl-3 pr-3.5 py-2 hover:bg-accent-hover focus-ring shadow-sm ml-1"
           >
             <Plus size={15} />
             <span className="hidden sm:inline">Add job</span>
           </button>
         </div>
+      </div>
+
+      <div className="flex items-center justify-between px-4 sm:px-6 h-8 text-[11.5px] text-muted-light dark:text-muted-dark border-t border-line-light/70 dark:border-line-dark/70">
+        <span>
+          Showing <span className="font-medium text-ink-light dark:text-ink-dark">{shownCount}</span> of{' '}
+          {totalCount} role{totalCount === 1 ? '' : 's'}
+        </span>
+        <span className="flex items-center gap-1.5 text-emerald-600 dark:text-emerald-400">
+          <Database size={11} />
+          Local IndexedDB
+        </span>
       </div>
     </header>
   );
@@ -86,7 +107,7 @@ function IconButton({ onClick, label, children }) {
       onClick={onClick}
       aria-label={label}
       title={label}
-      className="p-2 rounded-lg text-muted-light dark:text-muted-dark hover:bg-canvas-light dark:hover:bg-canvas-dark hover:text-ink-light dark:hover:text-ink-dark focus-ring"
+      className="p-2 rounded-lg text-muted-light dark:text-muted-dark hover:bg-canvas-light dark:hover:bg-white/[0.06] hover:text-ink-light dark:hover:text-ink-dark focus-ring"
     >
       {children}
     </button>

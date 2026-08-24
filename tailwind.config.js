@@ -12,30 +12,39 @@ export default {
       colors: {
         canvas: {
           light: '#F5F6F8',
-          dark: '#12141A',
+          dark: '#0A0A0F',
+        },
+        panel: {
+          light: '#FFFFFF',
+          dark: '#12131A',
         },
         surface: {
           light: '#FFFFFF',
-          dark: '#1B1E27',
+          dark: '#181924',
         },
         ink: {
           light: '#1A1D26',
-          dark: '#E7E9EF',
+          dark: '#ECEDF2',
         },
         muted: {
           light: '#6B7280',
-          dark: '#8B90A0',
+          dark: '#8A8D9C',
         },
         line: {
           light: '#E4E6EB',
-          dark: '#2A2E3A',
+          dark: '#252732',
+        },
+        accent: {
+          DEFAULT: '#7C5CFC',
+          hover: '#6B46F0',
+          soft: '#EDE9FE',
         },
         stage: {
           wishlist: '#8B90A0',
-          applied: '#3B7DED',
+          applied: '#3B82F6',
           followup: '#E8A23D',
           interview: '#8B5CF6',
-          offer: '#1FA97C',
+          offer: '#22C55E',
           rejected: '#E5566D',
         },
       },

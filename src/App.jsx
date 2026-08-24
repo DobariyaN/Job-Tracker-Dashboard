@@ -121,6 +121,8 @@ export default function App() {
         onAddJob={openAddModal}
         onExport={handleExport}
         onImportFile={handleImportFile}
+        totalCount={jobs.length}
+        shownCount={filteredJobs.length}
       />
 
       <main className="flex-1 overflow-hidden pt-4">
@@ -183,7 +185,7 @@ function EmptyState({ onAdd }) {
   return (
     <div className="h-full flex flex-col items-center justify-center text-center px-6">
       <div className="w-14 h-14 rounded-2xl bg-surface-light dark:bg-surface-dark border border-line-light dark:border-line-dark flex items-center justify-center mb-4">
-        <span className="text-2xl">🎟️</span>
+        <span className="text-2xl">✨</span>
       </div>
       <h2 className="font-display font-semibold text-lg text-ink-light dark:text-ink-dark">
         Your board is empty
@@ -194,7 +196,7 @@ function EmptyState({ onAdd }) {
       </p>
       <button
         onClick={onAdd}
-        className="mt-5 px-4 py-2 rounded-lg text-sm font-medium bg-[#3B7DED] text-white hover:bg-[#2f6bd4] focus-ring shadow-sm"
+        className="mt-5 px-4 py-2 rounded-lg text-sm font-medium bg-accent text-white hover:bg-accent-hover focus-ring shadow-sm"
       >
         Add your first job
       </button>

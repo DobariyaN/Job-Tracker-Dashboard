@@ -9,7 +9,7 @@ export const STATUSES = [
     id: 'applied',
     label: 'Applied',
     caption: 'Application submitted',
-    color: '#3B7DED',
+    color: '#3B82F6',
   },
   {
     id: 'followup',
@@ -27,7 +27,7 @@ export const STATUSES = [
     id: 'offer',
     label: 'Offer',
     caption: 'Offer in hand',
-    color: '#1FA97C',
+    color: '#22C55E',
   },
   {
     id: 'rejected',
@@ -71,4 +71,37 @@ export function daysLabel(n) {
   if (n === 1) return '1 day';
   if (n < 0) return `in ${Math.abs(n)}d`;
   return `${n} days`;
+}
+
+// Deterministic avatar color per company name, so the same company always
+// gets the same tag color across sessions.
+export const AVATAR_PALETTE = [
+  '#E5566D', // rose
+  '#E8A23D', // amber
+  '#3B82F6', // blue
+  '#8B5CF6', // violet
+  '#22C55E', // green
+  '#EC4899', // pink
+  '#14B8A6', // teal
+  '#F97316', // orange
+];
+
+export function avatarColor(name) {
+  const str = (name || '?').trim();
+  let hash = 0;
+  for (let i = 0; i < str.length; i++) {
+    hash = (hash * 31 + str.charCodeAt(i)) >>> 0;
+  }
+  return AVATAR_PALETTE[hash % AVATAR_PALETTE.length];
+}
+
+export function initialOf(name) {
+  const trimmed = (name || '').trim();
+  return trimmed ? trimmed[0].toUpperCase() : '?';
+}
+
+export function formatDateShort(dateStr) {
+  if (!dateStr) return '';
+  const d = new Date(dateStr + 'T00:00:00');
+  return d.toLocaleDateString(undefined, { month: 'short', day: 'numeric' });
 }
