@@ -22,7 +22,7 @@ export default function Header({ search, onSearchChange, theme, onToggleTheme, o
             <Ticket size={16} className="text-white" />
           </div>
           <span className="font-display font-bold text-[17px] text-ink-light dark:text-ink-dark hidden sm:inline">
-            Trackline
+            Trackline QA
           </span>
         </div>
 
